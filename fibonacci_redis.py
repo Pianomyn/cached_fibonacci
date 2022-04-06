@@ -2,6 +2,7 @@ import sys
 import redis
 r = redis.Redis()
 
+
 def fib_decorator(fib_fn):
     def wrapper_func(n):
         intermediate_result = r.hget("results", n)
@@ -15,7 +16,6 @@ def fib_decorator(fib_fn):
         return result
     return wrapper_func
 
-num = sys.argv[1]
 
 @fib_decorator
 def fibonacci_redis(n):
@@ -24,5 +24,8 @@ def fibonacci_redis(n):
     result = fibonacci_redis(n-1) + fibonacci_redis(n-2)
     return result
 
-print(fibonacci_redis(int(num)))
-r.delete("results")
+
+if __name__ == "__main__":
+    num = sys.argv[1]
+    print(fibonacci_redis(int(num)))
+    r.delete("results")

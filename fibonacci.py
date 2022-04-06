@@ -1,11 +1,13 @@
 import sys
 
+
 def fibonacci(n):
     if n <= 1:
         return n
     
-    result = fibonacci(n-1) + fibonacci(n-2)
-    return result
+    return fibonacci(n-1) + fibonacci(n-2)
 
-num = sys.argv[1]
-print(fibonacci(int(num)))
+
+if __name__ == "__main__":
+    num = sys.argv[1]
+    print(fibonacci(int(num)))
