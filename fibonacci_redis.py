@@ -21,8 +21,7 @@ def fib_decorator(fib_fn):
 def fibonacci_redis(n):
     if n <= 1:
         return n
-    result = fibonacci_redis(n-1) + fibonacci_redis(n-2)
-    return result
+    return fibonacci_redis(n-1) + fibonacci_redis(n-2)
 
 
 if __name__ == "__main__":
