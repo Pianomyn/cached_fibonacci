@@ -7,8 +7,7 @@ def fib_decorator(fib_fn):
     def wrapper_func(n):
         intermediate_result = r.hget("results", n)
         if intermediate_result:
-            intermediate_result = int(intermediate_result)
-            return intermediate_result 
+            return int(intermediate_result)
 
         result = fib_fn(n)
         if result > 1:
